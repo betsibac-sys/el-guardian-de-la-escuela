@@ -26,7 +26,7 @@ button:focus-visible{outline:4px solid #e8b52e;outline-offset:3px}
 <h2>¡El guardián te necesita!</h2>
 <p>Respondé las preguntas, reuní estrellas y avanzá por los niveles. Si te equivocás, podés volver a intentar.</p>
 <button class="primary" onclick="startGame()">¡COMENZAR LA AVENTURA!</button>
-<p class="small">Juego de muestra: después podemos cambiar estas preguntas por las de tu Wordwall.</p>
+
 </section>
 <section id="game" class="panel hidden" aria-live="polite">
 <div class="topline"><span id="level">Nivel 1</span><span id="progress">Pregunta 1 de 6</span><span id="score">⭐ 0</span></div>
@@ -43,12 +43,23 @@ button:focus-visible{outline:4px solid #e8b52e;outline-offset:3px}
 </main>
 <script>
 const questions=[
-{level:1,q:"¿Qué árbol es el Guardián de la escuela?",a:["Un olivo","Un cactus","Un pino","Una palmera"],correct:0},
-{level:1,q:"¿Cómo podemos cuidar el patio de la escuela?",a:["Tirando basura","Cuidando las plantas","Rompiendo ramas","Ensuciando el suelo"],correct:1},
-{level:2,q:"Si vemos basura en el patio, ¿qué podemos hacer?",a:["Dejarla allí","Patearla","Tirarla en el cesto","Esconderla"],correct:2},
-{level:2,q:"¿Qué debemos hacer con los árboles y las plantas?",a:["Arrancar sus hojas","Cuidarlos","Pisar sus raíces","Romper sus ramas"],correct:1},
-{level:3,q:"¿Por qué es importante cuidar los espacios de la escuela?",a:["Porque son de todos","Porque nadie los usa","Para que se ensucien","No es importante"],correct:0},
-{level:3,q:"¿Cuál es una buena acción para cuidar nuestra escuela?",a:["Rayar las paredes","Cuidar los materiales","Romper los juegos","Dejar canillas abiertas"],correct:1}
+{level:1,q:"¿Cómo se llama el proyecto?",a:["El guardián", "Patio verde", "El guardián de la escuela", "Olivo escolar"],correct:2},
+{level:1,q:"¿Qué árbol cuidan en la escuela?",a:["Pino", "Olivo", "Álamo", "Sauce"],correct:1},
+{level:1,q:"¿Dónde está el olivo?",a:["En el patio", "En la calle", "En la plaza", "En un vivero"],correct:0},
+{level:1,q:"¿De qué escuela hablan?",a:["Escuela Normal", "Escuela Técnica", "Escuela Belgrano", "Nocturna Doctor Aman Rawson"],correct:3},
+{level:1,q:"¿Cuántos años tiene el olivo?",a:["Treinta años", "Diez años", "Más de cien", "Cincuenta años"],correct:2},
+{level:1,q:"¿Qué frutos da el olivo?",a:["Aceitunas", "Higos", "Manzanas", "Peras"],correct:0},
+{level:2,q:"¿Qué quieren hacer con la comunidad?",a:["Competir", "Concientizar", "Mudarse", "Cerrar la escuela"],correct:1},
+{level:2,q:"¿A qué familia pertenece el olivo?",a:["Rosáceas", "Legumbres", "Gramíneas", "Oleáceas"],correct:3},
+{level:2,q:"¿Qué parte del árbol sostiene hojas, flores y frutos?",a:["Ramas", "Raíces", "Tronco", "Corteza"],correct:0},
+{level:2,q:"¿Qué absorben las raíces del olivo?",a:["Solo luz", "Piedras", "Agua y nutrientes", "Solo aire"],correct:2},
+{level:2,q:"¿Cómo se llama la parte carnosa de la aceituna?",a:["Epicarpio", "Mesocarpio", "Endocarpio", "Semilla"],correct:1},
+{level:2,q:"¿Qué protege al fruto por fuera?",a:["Pulpa", "Epicarpio", "Endocarpio", "Mesocarpio"],correct:1},
+{level:3,q:"¿Cómo son las aceitunas verdes?",a:["Firmes y amargas", "Secas y duras", "Dulces y blandas", "Negras y suaves"],correct:0},
+{level:3,q:"¿Qué necesita el olivo en los primeros años?",a:["Suelo seco", "Sombra total", "Riego moderado", "Frío extremo"],correct:2},
+{level:3,q:"¿Para qué sirve el abono?",a:["Da sombra", "Cambia hojas", "Quita raíces", "Aporta nutrientes"],correct:3},
+{level:3,q:"¿Qué mejora la poda?",a:["Luz y aire", "Color del suelo", "Sabor del agua", "Tamaño del hueso"],correct:0},
+{level:3,q:"¿Cuál es un producto del olivo?",a:["Jugo de naranja", "Miel pura", "Aceite de oliva", "Harina de trigo"],correct:2}
 ];
 let idx=0,stars=0,sound=false,answered=false;
 const $=id=>document.getElementById(id);
